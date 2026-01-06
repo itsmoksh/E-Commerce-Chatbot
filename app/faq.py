@@ -3,12 +3,14 @@ from pathlib import Path
 import chromadb
 from groq import Groq
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 faq_path = Path(__file__).parent/"resources/faq_data.csv"
 chroma_client = chromadb.Client()
 collection_faq = 'faqs'
 groq_client = Groq()
+GROQ_MODEL = os.getenv('GROQ_MODEL')
 
 def ingest_faq_data(path):
     if collection_faq not in [collection.name for collection in chroma_client.list_collections()]:
@@ -30,7 +32,6 @@ def ingest_faq_data(path):
 
 def get_relevant_qa(query):
     collection = chroma_client.get_collection(collection_faq)
-    print("Retrieving relevant answers..")
     result = collection.query(
         query_texts = query,
         n_results = 2
@@ -49,7 +50,7 @@ def faq_chain(query):
     Context: {context}'''
 
     completion = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model=GROQ_MODEL,
         messages=[{"role": "user", "content": prompt}])
 
     return completion.choices[0].message.content
