@@ -6,7 +6,7 @@ from small_talk import talk_chain
 from pathlib import Path
 st.title('E-Commerce Chatbot')
 
-path = Path(__file__).parent/"resources/faq_data.csv"
+path = Path(__file__).parent.parent/"resources/faq_data.csv"
 ingest_faq_data(path)
 
 def check_query(query):
