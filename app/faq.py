@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-faq_path = Path(__file__).parent/"resources/faq_data.csv"
+faq_path = Path(__file__).parent.parent/"resources/faq_data.csv"
 chroma_client = chromadb.Client()
 collection_faq = 'faqs'
 groq_client = Groq()
@@ -58,4 +58,5 @@ if __name__ == '__main__':
     ingest_faq_data(faq_path)
     query = "Which product I have ordered"
     print(faq_chain(query))
+
 

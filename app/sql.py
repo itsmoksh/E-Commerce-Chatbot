@@ -10,7 +10,7 @@ load_dotenv()
 groq_client= Groq()
 GROQ_MODEL = os.getenv('GROQ_MODEL')
 
-db_path = Path(__file__).parent/'resources/db.sqlite'
+db_path = Path(__file__).parent.parent/'resources/db.sqlite'
 
 def run_query(query):
     if query.strip().upper().startswith('SELECT'):
