@@ -12,13 +12,13 @@ ingest_faq_data(path)
 def check_query(query):
     route = router(query).name
     if route == 'faq':
-        return faq_chain(query)
+        return faq_chain(query),route
     elif route == 'product_search':
-        return sql_chain(query)
+        return sql_chain(query),route
     elif route == 'small_talk':
-        return talk_chain(query)
+        return talk_chain(query),route
     else:
-        return 'Route not implemented yet.'
+        return 'Route not implemented yet.','_'
 prompt = st.chat_input("Your Query here..")
 
 if 'messages' not in  st.session_state:
@@ -33,8 +33,12 @@ if prompt:
     with st.chat_message(name='user'):
         st.markdown(prompt)
         st.session_state['messages'].append({'role':'user', 'content':prompt})
-    response = check_query(prompt)
+    response,route = check_query(prompt)
     with st.chat_message(name = 'assistant'):
-        st.markdown(response)
-        st.session_state['messages'].append({'role':'assistant', 'content':response})
+        if route == 'product_search':
+                st.markdown("\n".join(response))
+                st.session_state['messages'].append({'role':'assistant', 'content':"\n".join(response)})
+        else:
+            st.markdown(response)
+            st.session_state['messages'].append({'role':'assistant', 'content':response})
 

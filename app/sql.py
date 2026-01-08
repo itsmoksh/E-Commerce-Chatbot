@@ -99,12 +99,14 @@ def sql_chain(question):
         return "Sorry, there's a problem executing sql query"
 
     context = response.to_dict(orient='records')
-    return data_compression(question,context)
+    print(context)
+    results =  [(f'''{idx+1}. {r['title']}: Rs. {r['price']} ({round(r['discount']*100,0)} percent off), Rating: {r['avg_rating']} {r['product_link']}''') for idx,r in enumerate(context)]
+    return results
 
 
 
 if __name__ == '__main__':
-    question = 'Give me top 3 puma shoes'
+    question = 'Suggest me top 2 nike shoes'
     response = sql_chain(question)
     print(response)
 
