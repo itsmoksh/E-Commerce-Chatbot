@@ -36,8 +36,12 @@ if prompt:
     response,route = check_query(prompt)
     with st.chat_message(name = 'assistant'):
         if route == 'product_search':
-                st.markdown("\n".join(response))
-                st.session_state['messages'].append({'role':'assistant', 'content':"\n".join(response)})
+            if len(response)!=0:
+                matches = "\n".join(response)
+            else:
+                matches = 'Sorry, No product available of your requirements.'
+            st.markdown(matches)
+            st.session_state['messages'].append({'role':'assistant', 'content':matches})
         else:
             st.markdown(response)
             st.session_state['messages'].append({'role':'assistant', 'content':response})
