@@ -27,7 +27,7 @@ welcome_msg = """👋 Welcome to our E-Commerce Chatbot!
 
 I can help you with:
 
-- 🛍️ **Product Search**: Find products based on your requirements
+- 🛍️ **Product Search**: Find products based on your requirements(Currently available for shoes)
 - ❓ **FAQ**: Answer frequently asked questions about orders, shipping, returns, etc.
 - 💬 **General Talk**: Have a casual conversation
 Briefly explain your query for the above categories.
