@@ -4,10 +4,14 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 from dotenv import load_dotenv
-load_dotenv()
+import streamlit as st
 
+load_dotenv()
 creds_json= os.environ.get("GOOGLE_SHEETS_CREDENTIALS")
-creds_dict = json.loads(creds_json)
+if creds_json is None:
+    creds_dict = dict(st.secrets["GOOGLE_SHEET_CREDENTIALS"])
+else:
+    creds_dict = json.loads(creds_json) # for streamlit deployment
 creds_dict['private_key'] = creds_dict['private_key'].replace('\\n', '\n')
 
 scopes = [
