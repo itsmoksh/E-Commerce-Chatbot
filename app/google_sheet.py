@@ -4,14 +4,12 @@ from datetime import datetime
 from pathlib import Path
 import streamlit as st
 
-# Use the second path, if you want to run locally
-cred_path = st.secrets['google_service_account']
-# cred_path = Path(__file__).parent.parent/"resources/credentials.json"
+# cred= Path(__file__).parent.parent/"resources/credentials.json"
 scopes = [
     'https://www.googleapis.com/auth/spreadsheets'
 ]
 
-creds = Credentials.from_service_account_file(cred_path,scopes=scopes)
+creds = Credentials.from_service_account_file(st.secrets['google_service_account'],scopes=scopes)
 client = gspread.authorize(creds)
 
 sheet_id = '1-GMp9JotffVArc1-hzD9-W9XoWIVmoWuMXt3kxFS2iI'
