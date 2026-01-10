@@ -9,7 +9,7 @@ import streamlit as st
 load_dotenv()
 creds_json= os.environ.get("GOOGLE_SHEETS_CREDENTIALS")
 if creds_json is None:
-    creds_dict = dict(st.secrets["GOOGLE_SHEET_CREDENTIALS"])
+    creds_dict = dict(st.secrets["GOOGLE_SHEETS_CREDENTIALS"])
 else:
     creds_dict = json.loads(creds_json) # for streamlit deployment
 creds_dict['private_key'] = creds_dict['private_key'].replace('\\n', '\n')
