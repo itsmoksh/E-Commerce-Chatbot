@@ -2,8 +2,11 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 from pathlib import Path
+import streamlit as st
 
-cred_path = Path(__file__).parent.parent/"resources/credentials.json"
+# Use the second path, if you want to run locally
+cred_path = st.secrets['google_service_account']
+# cred_path = Path(__file__).parent.parent/"resources/credentials.json"
 scopes = [
     'https://www.googleapis.com/auth/spreadsheets'
 ]
