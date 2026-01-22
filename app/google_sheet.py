@@ -21,7 +21,7 @@ scopes = [
 creds = Credentials.from_service_account_info(creds_dict,scopes=scopes)
 client = gspread.authorize(creds)
 
-sheet_id = '1-GMp9JotffVArc1-hzD9-W9XoWIVmoWuMXt3kxFS2iI'
+sheet_id = os.getenv("GOOGLE_SHEETS_ID")
 workbook= client.open_by_key(sheet_id)
 sheet = workbook.worksheet('Sheet1')
 
