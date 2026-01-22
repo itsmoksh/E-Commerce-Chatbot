@@ -36,10 +36,9 @@ E_commerce_Chat_Assistant/
 ├── LICENSE                             # Apache License file
 ├── README.md                           # This documentation
 └── requirements.txt                    # Python dependencies
-
 ```
 
-### Set-up & Execution
+## Set-up & Execution
 1. Clone the repository
    ```bash
    git clone https://github.com/itsmoksh/E-Commerce-Chatbot.git
@@ -73,5 +72,6 @@ E_commerce_Chat_Assistant/
     ```bash
     streamlit run app/main.py
     ```
-
+   
+---
 **Streamlit Live Demo:** [E-Commerce Chatbot](https://moksh-e-commerce-chatbot.streamlit.app/)
