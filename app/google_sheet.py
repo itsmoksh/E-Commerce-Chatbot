@@ -4,6 +4,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 from dotenv import load_dotenv
+from zoneinfo import ZoneInfo
 import streamlit as st
 
 load_dotenv()
@@ -25,9 +26,10 @@ sheet_id = os.getenv("GOOGLE_SHEETS_ID")
 workbook= client.open_by_key(sheet_id)
 sheet = workbook.worksheet('Sheet1')
 
+tz =  ZoneInfo("Asia/Kolkata") # Setting time zone to India
 def log_feedback(feedback):
     query = feedback['query']
     route = feedback['selected_route']
     suggestion = feedback['suggestions']
-    sheet.append_row([datetime.now().isoformat(),query,route,suggestion])
+    sheet.append_row([datetime.now(tz).isoformat(),query,route,suggestion])
 
