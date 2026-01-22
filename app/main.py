@@ -113,7 +113,14 @@ if prompt:
         with st.chat_message(name='assistant'):
             if route == 'product_search':
                 if len(response) != 0:
-                    matches = "\n".join(response)
+                    results = [
+                        f"""{idx + 1}. **{r['title']}**: Rs. {r['price']}
+                        ({round(r['discount'] * 100)}% off),
+                        Rating: {r['avg_rating']} -> [View Product]({r['product_link']})"""
+                        for idx, r in enumerate(response)
+                    ]
+                    print(results)
+                    matches = "\n\n".join(results)
                 else:
                     matches = 'Sorry, No product available of your requirements.'
                 st.markdown(matches)
