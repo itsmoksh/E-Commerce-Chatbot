@@ -31,5 +31,5 @@ def log_feedback(feedback):
     query = feedback['query']
     route = feedback['selected_route']
     suggestion = feedback['suggestions']
-    sheet.append_row([datetime.now(tz).isoformat(),query,route,suggestion])
+    sheet.append_row([datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S"),query,route,suggestion])
 
