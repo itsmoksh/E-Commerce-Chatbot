@@ -3,7 +3,7 @@ resources/credentials.json
 __pycache__/
 *.py[codz]
 *$py.class
-
+.devcontainer
 # C extensions
 *.so
 
