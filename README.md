@@ -23,11 +23,13 @@ E_commerce_Chat_Assistant/
 │   ├── router.py                       # Semantic intent router
 │   ├── main.py                         # Streamlit app entry point
 │   ├── smalltalk.py                    # Small talk response 
-│   ├── sql.py                          # SQL-based product search
-│   └── resources/                      # Data files for ingestion
-│       ├── chatbot_flow.png            # Flow Diagram of Project
-│       ├── faq_data.csv                # Frequently asked questions dataset
-│       └── db.sqlite                   # SQLite product database
+│   └── sql.py                          # SQL-based product search
+│
+├── resources/                          # Data files for ingestion & Retrieval
+│   ├── chatbot_flow.png                # Flow Diagram of Project
+│   ├── faq_data.csv                    # Frequently asked questions dataset
+│   ├── db.sqlite                       # SQLite product database
+│   └── ui_sc.png                       # Streamlit UI screenshot
 ├── web-scraping/                       # E-commerce product scrapers and tools
 │   ├── csv_to_sqlite.py                # Convert scraped CSV data to SQLite
 │   └── flipkart_data_extraction.ipynb  # Flipkart scraping notebook
@@ -37,6 +39,12 @@ E_commerce_Chat_Assistant/
 ├── README.md                           # This documentation
 └── requirements.txt                    # Python dependencies
 ```
+## Project Highlights
+- A Streamlit UI for a interactive chatbot experience to the users that helps in finding the best product(shoes).
+- An intent classifier using semantic router to classify user queries.
+- Feedback collection in the Google sheets from the user when unable to find the intent of the query.
+- Chromadb for storing the general FAQs and providing source grounded outputs.
+- LLM from Groq to provide human readable response and generating SQL queries(SELECT).
 
 ## Set-up & Execution
 1. Clone the repository
@@ -46,7 +54,7 @@ E_commerce_Chat_Assistant/
 2. Run the following command to install all dependencies. 
 
     ```bash
-    pip install -r app/requirements.txt
+    pip install -r requirements.txt
     ```
 
 3. Generate your Google sheets credentials for recording feedbacks.
@@ -58,7 +66,7 @@ E_commerce_Chat_Assistant/
    - Your service account is created. Just go to credentials select the service account. 
    - Under keys create a new api key and save it as json.
 
-4. Inside app folder, create a .env file with your GROQ credentials as follows:
+4. Inside app folder, create a .env file with your GROQ and sheets credentials as follows:
     ```text
     GROQ_MODEL=<Add the model name, e.g. llama-3.3-70b-versatile>
     GROQ_API_KEY=<Add your groq api key here>
@@ -72,6 +80,12 @@ E_commerce_Chat_Assistant/
     ```bash
     streamlit run app/main.py
     ```
-   
----
+
+## Project Screenshot   
+![Streamlit UI representing it's working](resources/ui_sc.png)
+
 **Streamlit Live Demo:** [E-Commerce Chatbot](https://moksh-e-commerce-chatbot.streamlit.app/)
+
+**Moksh Jain**
+
+[LinkedIn](https://www.linkedin.com/in/itsmoksh/) | [GitHub](https://github.com/itsmoksh) | [Portfolio](https://codebasics.io/portfolio/Moksh-Jain)
