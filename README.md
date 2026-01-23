@@ -13,6 +13,13 @@ This chatbot currently supports three intents:
 ## Architecture
 ![architecture diagram of the e-commerce chatbot](resources/chatbot_flow.png)
 
+## Project Highlights
+- A Streamlit UI for a interactive chatbot experience to the users that helps in finding the best product(shoes).
+- An intent classifier using semantic router to classify user queries.
+- Feedback collection in the Google sheets from the user when unable to find the intent of the query.
+- Chromadb for storing the general FAQs and providing source grounded outputs.
+- LLM from Groq to provide human readable response and generating SQL queries(SELECT).
+
 ## Folder Structure
 ```text
 E_commerce_Chat_Assistant/
@@ -30,6 +37,7 @@ E_commerce_Chat_Assistant/
 │   ├── faq_data.csv                    # Frequently asked questions dataset
 │   ├── db.sqlite                       # SQLite product database
 │   └── ui_sc.png                       # Streamlit UI screenshot
+│
 ├── web-scraping/                       # E-commerce product scrapers and tools
 │   ├── csv_to_sqlite.py                # Convert scraped CSV data to SQLite
 │   └── flipkart_data_extraction.ipynb  # Flipkart scraping notebook
@@ -39,12 +47,6 @@ E_commerce_Chat_Assistant/
 ├── README.md                           # This documentation
 └── requirements.txt                    # Python dependencies
 ```
-## Project Highlights
-- A Streamlit UI for a interactive chatbot experience to the users that helps in finding the best product(shoes).
-- An intent classifier using semantic router to classify user queries.
-- Feedback collection in the Google sheets from the user when unable to find the intent of the query.
-- Chromadb for storing the general FAQs and providing source grounded outputs.
-- LLM from Groq to provide human readable response and generating SQL queries(SELECT).
 
 ## Set-up & Execution
 1. Clone the repository
