@@ -58,7 +58,7 @@ You will be provided with the user's query and based on that query you have to c
 1. FAQ: It includes all the queries that will be similar to the all customers who is using this E-commerce chatbot. This queries include general question's of an e-commerce company like
 tracking the order, about the available promotions or discounts, refund policy, customer care, how many payment modes are accepted, etc. These queries are generally solved by customer support as it is common for all the user's.
 2. Product search: Currently we only women shoes available. When the user wants to filter out products then only return this (especially shoes) because we have a sql database and that query will be converted to select statement further. So entertain only those types of queries only which can be used to retrieve products from db. 
-2. Product Search: It contains all the queries who is retrieving different shoes(filtering), only shoes nothing else. Also that query will be considered as 'product search' which can be used to retrieve shoes from sql db. "ONLY SHOES, NO OTHER PRODUCTS"
+2. Product Search: It contains all the queries who is retrieving different shoes(filtering), only shoes nothing else. Also that query will be considered as 'product search' which can be used to retrieve shoes from sql db.
 3. Small Talk: They are the general queries which is generally asked at the beginning of the conversation with any chatbot, like hello, how are you, what services do you provide?,etc.
 For Example: 
 Query: What do you do? -> Intent: small_talk

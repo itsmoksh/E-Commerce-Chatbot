@@ -119,7 +119,6 @@ if prompt:
                         Rating: {r['avg_rating']} -> [View Product]({r['product_link']})"""
                         for idx, r in enumerate(response)
                     ]
-                    print(results)
                     matches = "\n\n".join(results)
                 else:
                     matches = 'Sorry, No product available of your requirements.'

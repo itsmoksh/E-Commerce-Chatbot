@@ -66,7 +66,6 @@ def sql_chain(question):
         return 'LLM is not able to generate SQL Query..'
 
     sql_query = matches[0].strip().replace('\n',' ')
-    print(sql_query)
     response = run_query(sql_query)
     if response is None:
         return "Sorry, there's a problem executing sql query"
@@ -75,7 +74,7 @@ def sql_chain(question):
     return context
 
 if __name__ == '__main__':
-    question = 'Suggest me top 2 nike shoes'
+    question = 'Suggest me top 2 laptops'
     response = sql_chain(question)
     print(response)
 
