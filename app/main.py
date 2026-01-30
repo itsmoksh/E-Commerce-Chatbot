@@ -1,5 +1,5 @@
 import streamlit as st
-from router import router
+from router import hybrid_intent_classification
 from faq import faq_chain, ingest_faq_data
 from sql import sql_chain
 from small_talk import talk_chain
@@ -13,7 +13,7 @@ ingest_faq_data(path)
 
 
 def check_query(query):
-    route = router(query).name
+    route = hybrid_intent_classification(query)
     if route == 'faq':
         return faq_chain(query), route
     elif route == 'product_search':
