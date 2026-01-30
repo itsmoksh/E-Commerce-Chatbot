@@ -1,7 +1,7 @@
 # E-Commerce-Chatbot
 
 
-An E-commerce chat assistant that can help users in their shopping, handling common FAQs queries accurately by identifying the user intent using semantic router. Integrated with ChromaDb and Sqlite with LLM to provide source grounded correct answers.
+An E-commerce chat assistant that can help users in their shopping, handling common FAQs queries accurately by identifying the user intent using semantic router and LLM. Integrated with ChromaDb and Sqlite with LLM to provide source grounded correct answers.
 
 Currently, supports product queries for women shoes only. 
 
@@ -14,8 +14,8 @@ This chatbot currently supports three intents:
 ![architecture diagram of the e-commerce chatbot](resources/chatbot_flow.png)
 
 ## Project Highlights
-- A Streamlit UI for a interactive chatbot experience to the users that helps in finding the best product(shoes).
-- An intent classifier using semantic router to classify user queries.
+- A Streamlit UI for an interactive chatbot experience to the users that helps in finding the best product(shoes).
+- An intent classifier using semantic router to classify user queries and LLM if the semantic router is not able to do so.
 - Feedback collection in the Google sheets from the user when unable to find the intent of the query.
 - Chromadb for storing the general FAQs and providing source grounded outputs.
 - LLM from Groq to provide human readable response and generating SQL queries(SELECT).
@@ -72,7 +72,7 @@ E_commerce_Chat_Assistant/
     ```text
     GROQ_MODEL=<Add the model name, e.g. llama-3.3-70b-versatile>
     GROQ_API_KEY=<Add your groq api key here>
-    GOOGLE_SHEETS_CREDENTIALS = <Put your google sheets json credentials into a single line e.g. {"type":.......,"unviverse_domain":..}
+    GOOGLE_SHEETS_CREDENTIALS = <Put your google sheets json credentials into a single line e.g. {"type":.......,"universe_domain":..}
     GOOGLE_SHEETS_ID = <Create a new google sheets and put it's sheet id here>
    ```
    Note: All the credentials should be enclosed in strings, like GROQ_API_KEY= 'gs...'
